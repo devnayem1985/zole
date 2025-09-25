@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="https://static.readdy.ai/static/e.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zole Card Game - Lobby</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#D4AF37',secondary:'#7A8471'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body { font-family: 'Inter', sans-serif; }
+        .font-logo { font-family: 'Pacifico', serif; }
+    </style>
+</head>
+<body class="bg-yellow-50 text-amber-900 min-h-screen">
+    <div class="w-full max-w-[1080px] h-[700px] mx-auto bg-gradient-to-br from-yellow-50 to-amber-50 border border-amber-200 overflow-hidden">
+        
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-amber-100 to-yellow-100 border-b-2 border-amber-200 px-6 py-4 h-20 flex items-center justify-between">
+            <!-- Player Info -->
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-primary to-amber-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    JD
+                </div>
+                <div class="flex flex-col">
+                    <h2 class="text-lg font-bold text-amber-900">John Doe</h2>
+                    <div class="flex items-center gap-3">
+                        <span class="bg-amber-200 text-amber-800 px-2 py-1 rounded-full text-sm font-medium">Level 15</span>
+                        <div class="flex items-center gap-1">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-coin-line text-primary"></i>
+                            </div>
+                            <span class="font-bold text-primary">2,450</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Stats -->
+            <div class="flex items-center gap-8">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-amber-800">127</div>
+                    <div class="text-sm text-amber-600">Players Online</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-amber-800">23</div>
+                    <div class="text-sm text-amber-600">Active Rooms</div>
+                </div>
+            </div>
+
+            <!-- Right Controls -->
+            <div class="flex items-center gap-2">
+                <div class="font-logo text-2xl text-primary mr-4">Zole</div>
+                <button class="w-10 h-10 flex items-center justify-center bg-amber-200 hover:bg-amber-300 rounded-button transition-colors">
+                    <i class="ri-fullscreen-line text-amber-800"></i>
+                </button>
+                <button class="w-10 h-10 flex items-center justify-center bg-amber-200 hover:bg-amber-300 rounded-button transition-colors">
+                    <i class="ri-settings-3-line text-amber-800"></i>
+                </button>
+                <button class="w-10 h-10 flex items-center justify-center bg-red-200 hover:bg-red-300 rounded-button transition-colors">
+                    <i class="ri-logout-box-line text-red-700"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="flex h-[580px]">
+            <!-- Left Panel - Create Room -->
+            <div class="w-80 bg-gradient-to-b from-amber-50 to-yellow-50 border-r-2 border-amber-200 p-6 overflow-y-auto">
+                <div class="bg-white rounded-lg shadow-lg border border-amber-200 p-6">
+                    <h3 class="text-xl font-bold text-amber-900 mb-6 flex items-center gap-2">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-add-circle-line text-primary"></i>
+                        </div>
+                        Create New Room
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-amber-800 mb-2">Room Name</label>
+                            <input type="text" placeholder="Enter room name" class="w-full px-4 py-3 border-2 border-amber-200 rounded-button focus:border-primary focus:outline-none text-base">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-amber-800 mb-2">Players</label>
+                            <div class="flex gap-2">
+                                <button class="flex-1 py-3 px-4 border-2 border-primary bg-primary text-white rounded-button font-medium whitespace-nowrap !rounded-button">2 Players</button>
+                                <button class="flex-1 py-3 px-4 border-2 border-amber-300 hover:border-primary hover:bg-primary hover:text-white rounded-button font-medium transition-colors whitespace-nowrap !rounded-button">3 Players</button>
+                                <button class="flex-1 py-3 px-4 border-2 border-amber-300 hover:border-primary hover:bg-primary hover:text-white rounded-button font-medium transition-colors whitespace-nowrap !rounded-button">4 Players</button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-amber-800 mb-2">Game Speed</label>
+                            <select class="w-full px-4 py-3 border-2 border-amber-200 rounded-button focus:border-primary focus:outline-none text-base pr-8">
+                                <option>Normal Speed</option>
+                                <option>Fast Game</option>
+                                <option>Slow Game</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-amber-800 mb-2">Bet Amount</label>
+                            <select class="w-full px-4 py-3 border-2 border-amber-200 rounded-button focus:border-primary focus:outline-none text-base pr-8">
+                                <option>10 Coins</option>
+                                <option>25 Coins</option>
+                                <option>50 Coins</option>
+                                <option>100 Coins</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-amber-800 mb-2">Minimum Games</label>
+                            <select class="w-full px-4 py-3 border-2 border-amber-200 rounded-button focus:border-primary focus:outline-none text-base pr-8">
+                                <option>5 Games</option>
+                                <option>10 Games</option>
+                                <option>15 Games</option>
+                                <option>20 Games</option>
+                            </select>
+                        </div>
+                        
+                        <button class="w-full bg-primary hover:bg-amber-600 text-white py-4 rounded-button font-bold text-lg transition-colors whitespace-nowrap !rounded-button">
+                            Create Room
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Room List -->
+            <div class="flex-1 p-6 overflow-y-auto">
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-amber-900 mb-4">Available Rooms</h3>
+                    
+                    <!-- Room Cards -->
+                    <div class="space-y-4">
+                        <!-- Room 1 -->
+                        <div class="bg-white rounded-lg shadow-md border border-amber-200 p-5 hover:shadow-lg transition-shadow">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h4 class="text-lg font-bold text-amber-900">Evening Champions</h4>
+                                    <div class="flex items-center gap-4 mt-2">
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-4 h-4 flex items-center justify-center">
+                                                <i class="ri-user-line text-amber-600"></i>
+                                            </div>
+                                            <span class="text-sm text-amber-700">2/3 Players</span>
+                                        </div>
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-4 h-4 flex items-center justify-center">
+                                                <i class="ri-coin-line text-primary"></i>
+                                            </div>
+                                            <span class="text-sm text-amber-700">25 Coins</span>
+                                        </div>
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-4 h-4 flex items-center justify-center">
+                                                <i class="ri-timer-line text-amber-600"></i>
+                                            </div>
+                                            <span class="text-sm text-amber-700">Normal</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="bg-secondary hover:bg-green-600 text-white px-6 py-2 rounded-button font-medium transition-colors whitespace-nowrap !rounded-button">
+                                    Join Room
+                                </button>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="flex gap-1">
+                                    <div class="w-3 h-3 bg-secondary rounded-full"></div>
+                                    <div class="w-3 h-3 bg-secondary rounded-full"></div>
+                                    <div class="w-3 h-3 bg-amber-200 rounded-full"></div>
+                                </div>
+                                <span class="text-xs text-amber-600">Waiting for 1 more player</span>
+                            </div>
+                        </div>
+
+                        <!-- Room 2 -->
+                        <div class="bg-white rounded-lg shadow-md border border-amber-200 p-5 hover:shadow-lg transition-shadow">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h4 class="text-lg font-bold text-amber-900">Quick Game Masters</h4>
+                                    <div class="flex items-center gap-4 mt-2">
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-4 h-4 flex items-center justify-center">
+                                                <i class="ri-user-line text-amber-600"></i>
+                                            </div>
+                                            <span class="text-sm text-amber-700">1/4 Players</span>
+                                        </div>
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-4 h-4 flex items-center justify-center">
+                                                <i class="ri-coin-line text-primary"></i>
+                                            </div>
+                                            <span class="text-sm text-amber-700">50 Coins</span>
+                                        </div>
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-4 h-4 flex items-center justify-center">
+                                                <i class="ri-timer-line text-amber-600"></i>
+                                            </div>
+                                            <span class="text-sm text-amber-700">Fast</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="bg-secondary hover:bg-green-600 text-white px-6 py-2 rounded-button font-medium transition-colors whitespace-nowrap !rounded-button">
+                                    Join Room
+                                </button>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="flex gap-1">
+                                    <div class="w-3 h-3 bg-secondary rounded-full"></div>
+                                    <div class="w-3 h-3 bg-amber-200 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-amber-200 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-amber-200 rounded-full"></div>
+                                </div>
+                                <span class="text-xs text-amber-600">Waiting for 3 more players</span>
+                            </div>
+                        </div>
+
+                        <!-- Room 3 -->
+                        <div class="bg-white rounded-lg shadow-md border border-amber-200 p-5 hover:shadow-lg transition-shadow">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h4 class="text-lg font-bold text-amber-900">Casual Friday</h4>
+                                    <div class="flex items-center gap-4 mt-2">
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-4 h-4 flex items-center justify-center">
+                                                <i class="ri-user-line text-amber-600"></i>
+                                            </div>
+                                            <span class="text-sm text-amber-700">3/3 Players</span>
+                                        </div>
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-4 h-4 flex items-center justify-center">
+                                                <i class="ri-coin-line text-primary"></i>
+                                            </div>
+                                            <span class="text-sm text-amber-700">10 Coins</span>
+                                        </div>
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-4 h-4 flex items-center justify-center">
+                                                <i class="ri-timer-line text-amber-600"></i>
+                                            </div>
+                                            <span class="text-sm text-amber-700">Slow</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="bg-amber-400 text-amber-800 px-6 py-2 rounded-button font-medium cursor-not-allowed whitespace-nowrap !rounded-button" disabled>
+                                    Room Full
+                                </button>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="flex gap-1">
+                                    <div class="w-3 h-3 bg-secondary rounded-full"></div>
+                                    <div class="w-3 h-3 bg-secondary rounded-full"></div>
+                                    <div class="w-3 h-3 bg-secondary rounded-full"></div>
+                                </div>
+                                <span class="text-xs text-secondary font-medium">Game in progress</span>
+                            </div>
+                        </div>
+
+                        <!-- Room 4 -->
+                        <div class="bg-white rounded-lg shadow-md border border-amber-200 p-5 hover:shadow-lg transition-shadow">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <h4 class="text-lg font-bold text-amber-900">High Stakes Arena</h4>
+                                    <div class="flex items-center gap-4 mt-2">
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-4 h-4 flex items-center justify-center">
+                                                <i class="ri-user-line text-amber-600"></i>
+                                            </div>
+                                            <span class="text-sm text-amber-700">0/2 Players</span>
+                                        </div>
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-4 h-4 flex items-center justify-center">
+                                                <i class="ri-coin-line text-primary"></i>
+                                            </div>
+                                            <span class="text-sm text-amber-700">100 Coins</span>
+                                        </div>
+                                        <div class="flex items-center gap-1">
+                                            <div class="w-4 h-4 flex items-center justify-center">
+                                                <i class="ri-timer-line text-amber-600"></i>
+                                            </div>
+                                            <span class="text-sm text-amber-700">Normal</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="bg-secondary hover:bg-green-600 text-white px-6 py-2 rounded-button font-medium transition-colors whitespace-nowrap !rounded-button">
+                                    Join Room
+                                </button>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="flex gap-1">
+                                    <div class="w-3 h-3 bg-amber-200 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-amber-200 rounded-full"></div>
+                                </div>
+                                <span class="text-xs text-amber-600">New room - be the first to join!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gradient-to-r from-amber-100 to-yellow-100 border-t-2 border-amber-200 px-6 py-3 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-2 text-sm text-amber-700">
+                    <div class="w-3 h-3 bg-secondary rounded-full"></div>
+                    <span>Player Joined</span>
+                </div>
+                <div class="flex items-center gap-2 text-sm text-amber-700">
+                    <div class="w-3 h-3 bg-amber-200 rounded-full"></div>
+                    <span>Waiting</span>
+                </div>
+                <div class="flex items-center gap-2 text-sm text-amber-700">
+                    <div class="w-4 h-4 flex items-center justify-center">
+                        <i class="ri-timer-line text-amber-600"></i>
+                    </div>
+                    <span>Game Speed</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-sm text-amber-700">Font Size:</span>
+                    <button class="px-3 py-1 text-sm border border-amber-300 rounded-button hover:bg-amber-200 transition-colors whitespace-nowrap !rounded-button">A</button>
+                    <button class="px-3 py-1 text-base border border-amber-300 bg-amber-200 rounded-button whitespace-nowrap !rounded-button">A</button>
+                    <button class="px-3 py-1 text-lg border border-amber-300 rounded-button hover:bg-amber-200 transition-colors whitespace-nowrap !rounded-button">A</button>
+                </div>
+                <button class="bg-primary hover:bg-amber-600 text-white px-4 py-2 rounded-button font-medium transition-colors whitespace-nowrap !rounded-button">
+                    Refresh Rooms
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <script id="font-size-control">
+        document.addEventListener('DOMContentLoaded', function() {
+            const fontButtons = document.querySelectorAll('footer button[class*="text-"]');
+            
+            fontButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    fontButtons.forEach(btn => {
+                        btn.classList.remove('bg-amber-200');
+                        btn.classList.add('hover:bg-amber-200');
+                    });
+                    
+                    this.classList.add('bg-amber-200');
+                    this.classList.remove('hover:bg-amber-200');
+                    
+                    const fontSize = this.classList.contains('text-sm') ? 'small' : 
+                                   this.classList.contains('text-lg') ? 'large' : 'medium';
+                    
+                    document.body.style.fontSize = fontSize === 'small' ? '14px' : 
+                                                 fontSize === 'large' ? '18px' : '16px';
+                });
+            });
+        });
+    </script>
+
+    <script id="player-selection">
+        document.addEventListener('DOMContentLoaded', function() {
+            const playerButtons = document.querySelectorAll('[class*="Players"]');
+            
+            playerButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    playerButtons.forEach(btn => {
+                        btn.classList.remove('bg-primary', 'text-white');
+                        btn.classList.add('border-amber-300', 'hover:border-primary', 'hover:bg-primary', 'hover:text-white');
+                    });
+                    
+                    this.classList.add('bg-primary', 'text-white');
+                    this.classList.remove('border-amber-300', 'hover:border-primary', 'hover:bg-primary', 'hover:text-white');
+                });
+            });
+        });
+    </script>
+
+    <script id="room-refresh">
+        document.addEventListener('DOMContentLoaded', function() {
+            const refreshButton = document.querySelector('footer button:last-child');
+            
+            refreshButton.addEventListener('click', function() {
+                this.textContent = 'Refreshing...';
+                this.disabled = true;
+                
+                setTimeout(() => {
+                    this.textContent = 'Refresh Rooms';
+                    this.disabled = false;
+                }, 1500);
+            });
+        });
+    </script>
+<script>
+    !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+    posthog.init('phc_t9tkQZJiyi2ps9zUYm8TDsL6qXo4YmZx0Ot5rBlAlEd', {
+        api_host: 'https://us.i.posthog.com',
+        autocapture: false,
+        capture_pageview: false,
+        capture_pageleave: false,
+        capture_performance: {
+            web_vitals: false,
+        },
+        rageclick: false,
+    })
+    window.shareKey = 'IGL5kH0UwOqMSq-m4fARvg';
+    window.host = 'readdy.ai';
+</script>
+</body>
+</html>
